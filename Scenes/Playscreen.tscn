@@ -1,0 +1,531 @@
+[gd_scene load_steps=43 format=3 uid="uid://bgeu4jb553sq1"]
+
+[ext_resource type="Script" path="res://Scripts/Game_Manager.gd" id="1_oaial"]
+[ext_resource type="Script" path="res://Scripts/Card_Holder.gd" id="2_3smu6"]
+[ext_resource type="FontFile" uid="uid://bl47w3lu8465n" path="res://Fonts/Oswald-Medium.ttf" id="2_62o4m"]
+[ext_resource type="Texture2D" uid="uid://latq7dl5n4y1" path="res://Interface/arrow.png" id="3_m1tta"]
+[ext_resource type="Texture2D" uid="uid://dowb6p3wg3igu" path="res://Interface/confess_button.png" id="4_05ihd"]
+[ext_resource type="PackedScene" uid="uid://cevgh3aenaitl" path="res://Card_Acceptor.tscn" id="4_j1xmp"]
+[ext_resource type="Texture2D" uid="uid://cpwuup5voahxv" path="res://Interface/confess_button_pressed.png" id="5_f81d7"]
+[ext_resource type="Texture2D" uid="uid://bctcuairlb5cv" path="res://Interface/confess_button_hover.png" id="6_3vw46"]
+[ext_resource type="PackedScene" uid="uid://bk851mkfn1hyi" path="res://draw_crimes.tscn" id="6_5ngyo"]
+[ext_resource type="Script" path="res://Scripts/Display.gd" id="7_xbgme"]
+[ext_resource type="Texture2D" uid="uid://cmbuecfhcou0t" path="res://Interface/background.png" id="9_to1uq"]
+[ext_resource type="Texture2D" uid="uid://dw073poo4holj" path="res://Interface/lady_justice.png" id="10_32qd4"]
+[ext_resource type="Texture2D" uid="uid://d30qt3emsdm30" path="res://Interface/new_interface_3.png" id="10_pbqen"]
+[ext_resource type="Texture2D" uid="uid://81ohwkxejgfd" path="res://Interface/scale_arms.png" id="11_33cq8"]
+[ext_resource type="Texture2D" uid="uid://c173xuoiw6wvp" path="res://Interface/scales.png" id="12_d1cfo"]
+[ext_resource type="Texture2D" uid="uid://chceor28pqg0v" path="res://Interface/gate.png" id="13_22apy"]
+[ext_resource type="AudioStream" uid="uid://y22qve1o4mpi" path="res://taco-bell-bong-sfx.mp3" id="14_4j8xu"]
+[ext_resource type="PackedScene" uid="uid://cpiml702kuqnn" path="res://turn_over.tscn" id="15_hq4hy"]
+[ext_resource type="Texture2D" uid="uid://bk7fk5xwsgdbc" path="res://Interface/gear1.png" id="15_i6t5m"]
+[ext_resource type="Animation" uid="uid://bpukl6sxdsvny" path="res://rotate_clockwise.res" id="16_ejt8m"]
+[ext_resource type="PackedScene" uid="uid://dhmxqbdvo08j1" path="res://game_over.tscn" id="16_kvqtt"]
+[ext_resource type="Texture2D" uid="uid://dtcn5flitc528" path="res://Interface/gear2.png" id="17_k50c7"]
+[ext_resource type="Texture2D" uid="uid://cma2xc15fqwbv" path="res://Interface/gear3.png" id="18_o0vxg"]
+[ext_resource type="Animation" uid="uid://coibdabijjwpj" path="res://rotate_clockwise_smooth.res" id="19_x8nyq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_axxtk"]
+font = ExtResource("2_62o4m")
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dnggg"]
+font = ExtResource("2_62o4m")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8gk68"]
+font_size = 56
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_47ek8"]
+font = ExtResource("2_62o4m")
+font_size = 36
+font_color = Color(0, 0, 0, 0.745098)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dul8w"]
+font = ExtResource("2_62o4m")
+font_size = 26
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5dcms"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6lwl6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a5qsl"]
+font = ExtResource("2_62o4m")
+font_size = 27
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_vk4xk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6l1dq"]
+_data = {
+"RESET": SubResource("Animation_vk4xk"),
+"rotate_clockwise_smooth": ExtResource("16_ejt8m")
+}
+
+[sub_resource type="Animation" id="Animation_nlusb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_mwgv7"]
+resource_name = "rotate_counterclockwise"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.418879, -0.837758, -1.25664, -1.67552, -2.0944, -2.51327, -2.93215, -3.35103, -3.76991, -4.18879, -4.60767, -5.02655, -5.44543, -5.86431, -6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7yuwf"]
+_data = {
+"RESET": SubResource("Animation_nlusb"),
+"rotate_clockwise": ExtResource("16_ejt8m"),
+"rotate_counterclockwise_smooth": SubResource("Animation_mwgv7")
+}
+
+[sub_resource type="Animation" id="Animation_rpdre"]
+resource_name = "Clockwise_Smooth"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rmyp5"]
+_data = {
+"Clockwise_Smooth": SubResource("Animation_rpdre"),
+"rotate_clockwise": ExtResource("16_ejt8m"),
+"rotate_clockwise_smooth": ExtResource("19_x8nyq")
+}
+
+[sub_resource type="Animation" id="Animation_vxg11"]
+resource_name = "Gear_Rotate"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gear1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.25664, 2.51327, 3.76991, 5.02655, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gear2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -1.25664, -2.51327, -3.76991, -5.02655, -6.28319]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Gear3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.25664, 2.51327, 3.76991, 5.02655, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_x3vwp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gear1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gear2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Gear3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0wcmc"]
+_data = {
+"Gear_Rotate": SubResource("Animation_vxg11"),
+"RESET": SubResource("Animation_x3vwp")
+}
+
+[node name="Main" type="Node2D"]
+
+[node name="Game_Manager" type="Node2D" parent="."]
+z_index = 11
+script = ExtResource("1_oaial")
+
+[node name="Round_Info" type="Control" parent="Game_Manager"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player_Name" type="Label" parent="Game_Manager/Round_Info"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 8.0
+offset_right = 193.0
+offset_bottom = 49.0
+label_settings = SubResource("LabelSettings_axxtk")
+
+[node name="Player_1_Sins" type="Label" parent="Game_Manager/Round_Info"]
+layout_mode = 0
+offset_left = 506.0
+offset_top = 23.0
+offset_right = 528.0
+offset_bottom = 62.0
+scale = Vector2(0.8, 0.8)
+label_settings = SubResource("LabelSettings_dnggg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Round" type="Label" parent="Game_Manager/Round_Info"]
+layout_mode = 0
+offset_left = 566.0
+offset_top = 15.0
+offset_right = 604.0
+offset_bottom = 95.0
+scale = Vector2(0.6, 0.6)
+text = "
+"
+label_settings = SubResource("LabelSettings_8gk68")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player_2_Sins" type="Label" parent="Game_Manager/Round_Info"]
+layout_mode = 0
+offset_left = 630.0
+offset_top = 23.0
+offset_right = 652.0
+offset_bottom = 62.0
+scale = Vector2(0.8, 0.8)
+label_settings = SubResource("LabelSettings_dnggg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player_1_Name" type="Label" parent="Game_Manager/Round_Info"]
+layout_mode = 0
+offset_left = 387.0
+offset_top = 11.0
+offset_right = 493.0
+offset_bottom = 68.0
+scale = Vector2(0.5, 0.5)
+label_settings = SubResource("LabelSettings_47ek8")
+
+[node name="Player_2_Name" type="Label" parent="Game_Manager/Round_Info"]
+layout_mode = 0
+offset_left = 674.0
+offset_top = 11.0
+offset_right = 780.0
+offset_bottom = 68.0
+scale = Vector2(0.5, 0.5)
+label_settings = SubResource("LabelSettings_47ek8")
+
+[node name="Display" type="RichTextLabel" parent="Game_Manager"]
+offset_left = 444.0
+offset_top = 549.0
+offset_right = 1122.0
+offset_bottom = 623.0
+scale = Vector2(1.00214, 0.978113)
+script = ExtResource("7_xbgme")
+
+[node name="Confession" type="TextureButton" parent="Game_Manager"]
+offset_left = 481.0
+offset_top = 288.0
+offset_right = 688.0
+offset_bottom = 329.0
+texture_normal = ExtResource("4_05ihd")
+texture_pressed = ExtResource("5_f81d7")
+texture_hover = ExtResource("6_3vw46")
+
+[node name="Investigation" type="Control" parent="Game_Manager"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Budget_Text" type="Label" parent="Game_Manager/Investigation"]
+layout_mode = 0
+offset_left = 963.0
+offset_top = 15.0
+offset_right = 1307.0
+offset_bottom = 144.0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 1
+text = "Current Investigation Budget: 20
+Number of Draws:      5      Cost: 20
+Remaining Budget: 0 + (2)"
+label_settings = SubResource("LabelSettings_dul8w")
+
+[node name="Less_Draws" type="Button" parent="Game_Manager/Investigation"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1052.0
+offset_top = 37.0
+offset_right = 1067.0
+offset_bottom = 58.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5dcms")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5dcms")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5dcms")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5dcms")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5dcms")
+icon = ExtResource("3_m1tta")
+
+[node name="More_Draws" type="Button" parent="Game_Manager/Investigation"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1091.0
+offset_top = 58.0
+offset_right = 1105.0
+offset_bottom = 79.0
+rotation = 3.14159
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5dcms")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5dcms")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5dcms")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5dcms")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5dcms")
+icon = ExtResource("3_m1tta")
+
+[node name="Submit" type="Button" parent="Game_Manager/Investigation"]
+layout_mode = 0
+offset_left = 983.0
+offset_top = 77.0
+offset_right = 1249.0
+offset_bottom = 125.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_62o4m")
+theme_override_font_sizes/font_size = 20
+text = "SUBMIT INVESTIGATION REQUEST
+"
+icon = SubResource("ViewportTexture_6lwl6")
+
+[node name="Conclusion" type="Label" parent="Game_Manager/Investigation"]
+visible = false
+layout_mode = 0
+offset_left = 959.0
+offset_top = 13.0
+offset_right = 1137.0
+offset_bottom = 101.0
+text = "INVESTIGATION
+COMPLETE"
+label_settings = SubResource("LabelSettings_a5qsl")
+horizontal_alignment = 1
+
+[node name="Card_Holder" type="Node2D" parent="."]
+z_index = 13
+position = Vector2(17, 56)
+script = ExtResource("2_3smu6")
+
+[node name="Scroll_Deck" type="ScrollContainer" parent="Card_Holder"]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 135.0
+offset_bottom = 407.0
+scale = Vector2(1.45, 1.45)
+
+[node name="Deck" type="VBoxContainer" parent="Card_Holder/Scroll_Deck"]
+layout_mode = 2
+metadata/_edit_group_ = true
+
+[node name="Timer" type="Timer" parent="Card_Holder"]
+wait_time = 0.05
+one_shot = true
+
+[node name="Card_Acceptor" parent="Card_Holder" instance=ExtResource("4_j1xmp")]
+offset_left = 713.0
+offset_top = 375.0
+offset_right = 833.0
+offset_bottom = 464.0
+
+[node name="Scroll_Crimes" type="ScrollContainer" parent="Card_Holder"]
+offset_left = 943.0
+offset_top = 61.0
+offset_right = 1075.0
+offset_bottom = 338.0
+scale = Vector2(1.45, 1.45)
+
+[node name="Draw_Crimes" parent="Card_Holder/Scroll_Crimes" instance=ExtResource("6_5ngyo")]
+layout_mode = 2
+
+[node name="Interface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UI" type="Sprite2D" parent="Interface"]
+show_behind_parent = true
+light_mask = 2
+visibility_layer = 2
+z_index = 10
+texture_filter = 1
+position = Vector2(577, 324)
+scale = Vector2(1.63352, 1.63636)
+texture = ExtResource("10_pbqen")
+metadata/_edit_group_ = true
+
+[node name="Gear1" type="Sprite2D" parent="Interface/UI"]
+z_index = -1
+texture_filter = 1
+position = Vector2(52.0349, 122.222)
+texture = ExtResource("15_i6t5m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interface/UI/Gear1"]
+libraries = {
+"": SubResource("AnimationLibrary_6l1dq")
+}
+
+[node name="Gear2" type="Sprite2D" parent="Interface/UI"]
+z_index = -2
+texture_filter = 1
+position = Vector2(194.672, 114.889)
+texture = ExtResource("17_k50c7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interface/UI/Gear2"]
+libraries = {
+"": SubResource("AnimationLibrary_7yuwf")
+}
+
+[node name="Gear3" type="Sprite2D" parent="Interface/UI"]
+z_index = -1
+texture_filter = 1
+position = Vector2(194.672, 117.334)
+texture = ExtResource("18_o0vxg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interface/UI/Gear3"]
+libraries = {
+"": SubResource("AnimationLibrary_rmyp5")
+}
+
+[node name="Gate" type="Sprite2D" parent="Interface/UI"]
+visible = false
+z_index = 15
+position = Vector2(-287.917, 17.2174)
+scale = Vector2(1.1201, 1.06031)
+texture = ExtResource("13_22apy")
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interface/UI"]
+libraries = {
+"": SubResource("AnimationLibrary_0wcmc")
+}
+
+[node name="Background" type="Sprite2D" parent="Interface"]
+show_behind_parent = true
+z_index = -10
+z_as_relative = false
+texture_filter = 1
+position = Vector2(577, 324)
+scale = Vector2(1.63352, 1.63636)
+texture = ExtResource("9_to1uq")
+
+[node name="Lady_Justice" type="Sprite2D" parent="Interface"]
+show_behind_parent = true
+z_index = -2
+texture_filter = 1
+position = Vector2(561, 362)
+scale = Vector2(1.63352, 1.63636)
+texture = ExtResource("10_32qd4")
+
+[node name="Arms" type="Sprite2D" parent="Interface/Lady_Justice"]
+show_behind_parent = true
+z_index = -2
+texture_filter = 1
+texture = ExtResource("11_33cq8")
+
+[node name="Right_Cup" type="Sprite2D" parent="Interface/Lady_Justice/Arms"]
+texture_filter = 1
+texture = ExtResource("12_d1cfo")
+
+[node name="Left_Cup" type="Sprite2D" parent="Interface/Lady_Justice/Arms"]
+texture_filter = 1
+position = Vector2(348.934, -0.614914)
+texture = ExtResource("12_d1cfo")
+
+[node name="Taco_Bell" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_4j8xu")
+volume_db = 24.0
+pitch_scale = 1.19
+attenuation = 1.03527
+
+[node name="turn_over" parent="." instance=ExtResource("15_hq4hy")]
+visible = false
+position = Vector2(577, 247)
+
+[node name="game_over" parent="." instance=ExtResource("16_kvqtt")]
+visible = false
+z_index = 15
+position = Vector2(576, 310)
+
+[node name="SubViewport" type="SubViewport" parent="."]
+render_target_update_mode = 4
+
+[connection signal="pressed" from="Game_Manager/Confession" to="Game_Manager" method="_on_confession_pressed"]
+[connection signal="pressed" from="Game_Manager/Investigation/Less_Draws" to="Game_Manager" method="_on_less_draws_pressed"]
+[connection signal="pressed" from="Game_Manager/Investigation/More_Draws" to="Game_Manager" method="_on_more_draws_pressed"]
+[connection signal="pressed" from="Game_Manager/Investigation/Submit" to="Game_Manager" method="_on_submit_pressed"]
+[connection signal="timeout" from="Card_Holder/Timer" to="Card_Holder" method="_on_timer_timeout"]

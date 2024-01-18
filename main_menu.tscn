@@ -1,0 +1,150 @@
+[gd_scene load_steps=5 format=3 uid="uid://i07tpskjuatq"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_c05n7"]
+[ext_resource type="Texture2D" uid="uid://cmbuecfhcou0t" path="res://Interface/background.png" id="1_o64ff"]
+[ext_resource type="Texture2D" uid="uid://jpge6kuhaljd" path="res://Interface/box1.png" id="2_fgry6"]
+[ext_resource type="FontFile" uid="uid://bl47w3lu8465n" path="res://Fonts/Oswald-Medium.ttf" id="3_y78ui"]
+
+[node name="Main_Menu" type="Node2D"]
+script = ExtResource("1_c05n7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576.5, 324.5)
+scale = Vector2(1.63494, 1.63384)
+texture = ExtResource("1_o64ff")
+
+[node name="Player_1_Input" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 383.0
+offset_top = 331.0
+offset_right = 423.0
+offset_bottom = 371.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Player_1_Input"]
+position = Vector2(72.4722, 24.1304)
+scale = Vector2(-0.764409, 0.40818)
+texture = ExtResource("2_fgry6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Player_1_Input"]
+position = Vector2(255.945, 23.92)
+scale = Vector2(-1.19437, 0.413114)
+texture = ExtResource("2_fgry6")
+
+[node name="Player_1_Name" type="LineEdit" parent="Player_1_Input"]
+layout_mode = 0
+offset_left = 10.4722
+offset_top = 8.13046
+offset_right = 164.472
+offset_bottom = 49.1305
+scale = Vector2(0.8, 0.8)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_y78ui")
+theme_override_font_sizes/font_size = 20
+text = "Player 1"
+placeholder_text = "Player 1"
+
+[node name="Pronoun" type="HBoxContainer" parent="Player_1_Input"]
+layout_mode = 0
+offset_left = 159.472
+offset_top = 6.13043
+offset_right = 368.472
+offset_bottom = 44.1304
+scale = Vector2(1, 0.960005)
+
+[node name="L1" type="LineEdit" parent="Player_1_Input/Pronoun"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_y78ui")
+theme_override_font_sizes/font_size = 20
+text = "They"
+placeholder_text = "They"
+
+[node name="L2" type="LineEdit" parent="Player_1_Input/Pronoun"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_y78ui")
+theme_override_font_sizes/font_size = 20
+text = "Their"
+placeholder_text = "Their"
+
+[node name="L3" type="LineEdit" parent="Player_1_Input/Pronoun"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_y78ui")
+theme_override_font_sizes/font_size = 20
+text = "Them"
+placeholder_text = "Them"
+
+[node name="Player_2_Input" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 383.0
+offset_top = 331.0
+offset_right = 423.0
+offset_bottom = 371.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Player_2_Input"]
+position = Vector2(72.4722, 24.1304)
+scale = Vector2(-0.764409, 0.40818)
+texture = ExtResource("2_fgry6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Player_2_Input"]
+position = Vector2(255.945, 23.92)
+scale = Vector2(-1.19437, 0.413114)
+texture = ExtResource("2_fgry6")
+
+[node name="Player_2_Name" type="LineEdit" parent="Player_2_Input"]
+layout_mode = 0
+offset_left = 10.4722
+offset_top = 8.13046
+offset_right = 164.472
+offset_bottom = 49.1305
+scale = Vector2(0.8, 0.8)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_y78ui")
+theme_override_font_sizes/font_size = 20
+text = "Player 2"
+placeholder_text = "Player 2"
+
+[node name="Pronoun" type="HBoxContainer" parent="Player_2_Input"]
+layout_mode = 0
+offset_left = 159.472
+offset_top = 6.13043
+offset_right = 368.472
+offset_bottom = 44.1304
+scale = Vector2(1, 0.960005)
+
+[node name="L1" type="LineEdit" parent="Player_2_Input/Pronoun"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_y78ui")
+theme_override_font_sizes/font_size = 20
+text = "They"
+placeholder_text = "They"
+
+[node name="L2" type="LineEdit" parent="Player_2_Input/Pronoun"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_y78ui")
+theme_override_font_sizes/font_size = 20
+text = "Their"
+placeholder_text = "Their"
+
+[node name="L3" type="LineEdit" parent="Player_2_Input/Pronoun"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_y78ui")
+theme_override_font_sizes/font_size = 20
+text = "Them"
+placeholder_text = "Them"
+
+[node name="Proceed" type="Button" parent="."]
+offset_left = 529.0
+offset_top = 379.0
+offset_right = 610.0
+offset_bottom = 410.0
+text = "PROCEED"
+
+[connection signal="pressed" from="Proceed" to="." method="_on_proceed_pressed"]

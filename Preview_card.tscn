@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bib4tbid0iedw"]
+
+[ext_resource type="Texture2D" uid="uid://0gac6gb2qcmq" path="res://Cards/card_crime.png" id="1_bpvna"]
+[ext_resource type="LabelSettings" uid="uid://dmsqahuncm2wn" path="res://card_setting.tres" id="2_w3fr6"]
+
+[node name="TextureRect" type="TextureRect"]
+texture_filter = 1
+offset_right = 120.0
+offset_bottom = 60.0
+texture = ExtResource("1_bpvna")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 24.0
+offset_right = 1754.0
+offset_bottom = 586.0
+scale = Vector2(0.0498872, 0.0408975)
+text = "Hello"
+label_settings = ExtResource("2_w3fr6")

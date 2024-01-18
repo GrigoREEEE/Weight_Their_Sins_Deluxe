@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dmsqahuncm2wn"]
+
+[ext_resource type="FontFile" uid="uid://bl47w3lu8465n" path="res://Fonts/Oswald-Medium.ttf" id="1_7bcsq"]
+
+[resource]
+font = ExtResource("1_7bcsq")
+font_size = 360
+font_color = Color(0, 0, 0, 0.662745)

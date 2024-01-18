@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvjxx454qod02"]
+
+[ext_resource type="Script" path="res://Scripts/Card.gd" id="1_1bwg3"]
+[ext_resource type="Texture2D" uid="uid://c5lwuya2wvni1" path="res://Cards/card_object.png" id="1_22b4y"]
+[ext_resource type="LabelSettings" uid="uid://dmsqahuncm2wn" path="res://card_setting.tres" id="4_pgqsj"]
+[ext_resource type="Texture2D" uid="uid://bvaqvv61e70eu" path="res://Cards/card_darken.png" id="4_sdxm5"]
+
+[node name="Card" type="TextureRect" groups=["Cards"]]
+texture_filter = 1
+custom_minimum_size = Vector2(120, 55)
+offset_right = 120.0
+offset_bottom = 60.0
+texture = ExtResource("1_22b4y")
+expand_mode = 1
+script = ExtResource("1_1bwg3")
+
+[node name="Panel" type="Panel" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 60.0
+mouse_filter = 2
+
+[node name="Type" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 9.0
+offset_right = 28.0
+offset_bottom = 16.0
+tooltip_text = "This is a Crime card."
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 24.0
+offset_right = 1754.0
+offset_bottom = 586.0
+scale = Vector2(0.0498872, 0.0408975)
+label_settings = ExtResource("4_pgqsj")
+
+[node name="Darken" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 0.631373)
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 60.0
+tooltip_text = "This card is unavailable!"
+texture = ExtResource("4_sdxm5")

@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhmxqbdvo08j1"]
+
+[ext_resource type="Texture2D" uid="uid://f4vnejue6tgd" path="res://Interface/Death_screen.png" id="1_mj6eu"]
+[ext_resource type="Script" path="res://turn_over.gd" id="2_4uggj"]
+[ext_resource type="FontFile" uid="uid://bl47w3lu8465n" path="res://Fonts/Oswald-Medium.ttf" id="4_4ymkp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_up1v6"]
+font = ExtResource("4_4ymkp")
+font_size = 128
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ldld3"]
+font = ExtResource("4_4ymkp")
+font_size = 128
+font_color = Color(0, 0, 0, 1)
+
+[node name="game_over" type="Sprite2D"]
+texture_filter = 1
+position = Vector2(600, 328)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_mj6eu")
+script = ExtResource("2_4uggj")
+
+[node name="Crimes_Commited" type="Label" parent="."]
+offset_left = -220.0
+offset_top = 103.0
+offset_right = 2790.0
+offset_bottom = 1498.0
+scale = Vector2(0.07, 0.07)
+label_settings = SubResource("LabelSettings_up1v6")
+autowrap_mode = 3
+
+[node name="Punishment_Assigned" type="Label" parent="."]
+offset_left = 9.0
+offset_top = 103.0
+offset_right = 3023.0
+offset_bottom = 1489.0
+scale = Vector2(0.07, 0.07)
+label_settings = SubResource("LabelSettings_ldld3")
+autowrap_mode = 3
+
+[node name="RichText" type="RichTextLabel" parent="."]
+offset_left = -278.0
+offset_top = -115.0
+offset_right = 655.0
+offset_bottom = 192.0
+scale = Vector2(0.595, 0.595)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_4ymkp")
+theme_override_font_sizes/normal_font_size = 32
